@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:Reference Uri="http://ttls4hlab.tatatechnologies.com:9222/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_UI',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI"/>
+    </edmx:Reference>
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="ZPREMPLOYEE_SRV" xml:lang="en" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <EntityType Name="ZPREMPLOYEE" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Eid"/>
+                </Key>
+                <Property Name="Eid" Type="Edm.Guid" Nullable="false" sap:unicode="false" sap:label="UUID"/>
+                <Property Name="Fname" Type="Edm.String" MaxLength="50" sap:unicode="false" sap:label="FNAME"/>
+                <Property Name="Lname" Type="Edm.String" MaxLength="50" sap:unicode="false" sap:label="LNAME"/>
+                <Property Name="Gender" Type="Edm.String" MaxLength="20" sap:unicode="false" sap:label="GENDER"/>
+                <Property Name="Dept" Type="Edm.String" MaxLength="50" sap:unicode="false" sap:label="DEPT"/>
+                <Property Name="Status" Type="Edm.String" MaxLength="1" sap:unicode="false" sap:label="STATUS"/>
+                <Property Name="Doj" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="DOJ"/>
+                <Property Name="Dob" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="DOB"/>
+                <Property Name="Age" Type="Edm.String" MaxLength="3" sap:unicode="false" sap:label="AGE"/>
+                <Property Name="Salary" Type="Edm.Int64" sap:unicode="false" sap:label="Employee Salary"/>
+                <Property Name="Currency" Type="Edm.String" MaxLength="5" sap:unicode="false" sap:label="CURRENCY" sap:semantics="currency-code"/>
+                <Property Name="Ratings" Type="Edm.Decimal" Precision="10" Scale="2" sap:unicode="false" sap:label="RATINGS"/>
+            </EntityType>
+            <EntityContainer Name="ZPREMPLOYEE_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="ZPREMPLOYEESet" EntityType="ZPREMPLOYEE_SRV.ZPREMPLOYEE" sap:searchable="true" sap:pageable="false" sap:content-version="1"/>
+            </EntityContainer>
+            <Annotation Term="Core.SchemaVersion" String="1.0.0" xmlns="http://docs.oasis-open.org/odata/ns/edm"/>
+            <Annotations Target="ZPREMPLOYEE_SRV.ZPREMPLOYEE" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="UI.HeaderInfo">
+                    <Record>
+                        <PropertyValue Property="TypeName" String="Employee Details"/>
+                        <PropertyValue Property="TypeNamePlural" String="Employees"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="UI.LineItem">
+                    <Collection>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="First Name"/>
+                            <PropertyValue Property="VALUE" Path="FNAME"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Last Name"/>
+                            <PropertyValue Property="Value" Path="Lname"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Department"/>
+                            <PropertyValue Property="Value" Path="Dept"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Date-of-join"/>
+                            <PropertyValue Property="Value" Path="Doj"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Salary"/>
+                            <PropertyValue Property="Value" Path="Salary"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+            <atom:link rel="self" href="http://ttls4hlab.tatatechnologies.com:9222/sap/opu/odata/sap/ZPREMPLOYEE_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+            <atom:link rel="latest-version" href="http://ttls4hlab.tatatechnologies.com:9222/sap/opu/odata/sap/ZPREMPLOYEE_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>
